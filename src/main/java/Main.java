@@ -9,7 +9,15 @@ public class Main {
 
         RegisterTest registerTest = new RegisterTest();
         registerTest.validRegisterTest();
+
+
+      WhishListTest whishList = new WhishListTest();
+      whishList.validWhishList();
+
+
     }
+
+
 
     public static void wait(int seconds){
         try{
