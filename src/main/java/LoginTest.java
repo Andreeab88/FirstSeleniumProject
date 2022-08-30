@@ -8,6 +8,7 @@ public class LoginTest {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("http://testfasttrackit.info/selenium-test/");
+
         driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
         driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
         driver.findElement(By.id("email")).sendKeys("andreea1988iusti2015@gmail.com");

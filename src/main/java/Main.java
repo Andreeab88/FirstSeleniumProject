@@ -14,7 +14,8 @@ public class Main {
       WhishListTest whishList = new WhishListTest();
       whishList.validWhishList();
 
-
+AddProductInWishList addProductInWishList = new AddProductInWishList();
+addProductInWishList.validAddProductInWishList();
     }
 
 

@@ -14,9 +14,9 @@ public class WhishListTest {
 driver.findElement(By.cssSelector("#header-account > div > ul > li:nth-child(2) > a")).click();
 driver.findElement(By.id("email")).sendKeys("andreea1988iusti2015@gmail.com");
 driver.findElement(By.id("pass")).sendKeys("123456");
-driver.findElement(By.cssSelector("#login-form > div > div.col-2.registered-users > div.content.fieldset > ul > li:nth-child(3) > a")).click();
-driver.findElement(By.id("email_address")).sendKeys("andreea1988iusti2015@gmail.com");
-driver.findElement(By.cssSelector("#form-validate > div.buttons-set > button > span > span")).click();
+//driver.findElement(By.cssSelector("#login-form > div > div.col-2.registered-users > div.content.fieldset > ul > li:nth-child(3) > a")).click();
+//driver.findElement(By.id("email_address")).sendKeys("andreea1988iusti2015@gmail.com");
+//driver.findElement(By.cssSelector("#form-validate > div.buttons-set > button > span > span")).click();
 driver.findElement(By.id("send2")).click();
 driver.quit();
 
