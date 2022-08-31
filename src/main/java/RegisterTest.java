@@ -13,7 +13,7 @@ public class RegisterTest {
         driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
         driver.findElement(By.cssSelector("#header-account > div > ul > li:nth-child(5) > a")).click();
 driver.findElement(By.id("firstname")).sendKeys("Boboc");
-driver.findElement(By.id("middlename"));
+driver.findElement(By.id("middlename")).sendKeys("");
 driver.findElement(By.id("lastname")).sendKeys("Andreea");
 driver.findElement(By.id("email_address")).sendKeys("andreea1988iusti2015@gmail.com");
 driver.findElement(By.id("password")).sendKeys("123456");

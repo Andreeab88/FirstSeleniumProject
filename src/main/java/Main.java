@@ -1,11 +1,11 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 public class Main {
     public static void main(String[] args) {
-       LoginTest loginTest = new LoginTest();
+
+
+
+        LoginTest loginTest = new LoginTest();
         loginTest.validLoginTest();
+        loginTest.changeLanguage();
 
         RegisterTest registerTest = new RegisterTest();
         registerTest.validRegisterTest();
@@ -14,8 +14,14 @@ public class Main {
       WhishListTest whishList = new WhishListTest();
       whishList.validWhishList();
 
-AddProductInWishList addProductInWishList = new AddProductInWishList();
-addProductInWishList.validAddProductInWishList();
+
+        AddProductInWishListTest hoverOverCategory = new AddProductInWishListTest();
+        hoverOverCategory.hoverOverCategoryTest();
+
+
+
+
+
     }
 
 
