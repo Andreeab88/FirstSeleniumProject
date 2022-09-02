@@ -1,40 +1,46 @@
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import java.util.List;
-
 public class LoginTest {
-    public void validLoginTest(){
+
+    private WebDriver driver;
+
+    @Before
+    public void initDriver(){
+        driver = new ChromeDriver();
         System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("http://testfasttrackit.info/selenium-test/");
+    }
 
+    @Test
+    public void validLoginTest(){
         driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
         driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
         driver.findElement(By.id("email")).sendKeys("andreea1988iusti2015@gmail.com");
         driver.findElement(By.id("pass")).sendKeys("123456");
         driver.findElement(By.id("send2")).click();
-        driver.quit();
+
     }
 
-
+@Test
 public void changeLanguage(){
-    System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
-    WebDriver driver = new ChromeDriver();
-    driver.manage().window().maximize();
-    driver.get("http://testfasttrackit.info/selenium-test/");
-
-
-    Select selectLanguageDropDown = new Select(driver.findElement(By.id("select-language")));
+        Select selectLanguageDropDown = new Select(driver.findElement(By.id("select-language")));
     selectLanguageDropDown.selectByVisibleText("German");
-driver.quit();
+
 
 }
+@After
 
+    public void closeDriver(){
+        driver.quit();
+}
 
 
 
