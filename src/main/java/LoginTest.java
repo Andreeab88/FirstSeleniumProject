@@ -1,8 +1,10 @@
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -12,7 +14,7 @@ public class LoginTest {
 
     @Before
     public void initDriver(){
-        driver = new ChromeDriver();
+
         System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
          driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -21,12 +23,13 @@ public class LoginTest {
 
     @Test
     public void validLoginTest(){
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
+        driver.findElement(By.cssSelector(".skip-account")).click();
+        driver.findElement(By.cssSelector("[title='Log In']")).click();
         driver.findElement(By.id("email")).sendKeys("andreea1988iusti2015@gmail.com");
         driver.findElement(By.id("pass")).sendKeys("123456");
         driver.findElement(By.id("send2")).click();
-
+        WebElement welcomeText = driver.findElement(By.cssSelector(".hello strong"));
+        Assert.assertEquals("Hello, Boboc Andreea!",welcomeText.getText());
     }
 
 @Test
