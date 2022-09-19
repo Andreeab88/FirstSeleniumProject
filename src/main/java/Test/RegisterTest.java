@@ -1,3 +1,5 @@
+package Test;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -20,7 +22,7 @@ public class RegisterTest {
 @Test
     public void validRegisterTest(){
         driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li:nth-child(5) > a")).click();
+        driver.findElement(By.cssSelector("[title='Register']")).click();
 driver.findElement(By.id("firstname")).sendKeys("Boboc");
 driver.findElement(By.id("middlename")).sendKeys("");
 driver.findElement(By.id("lastname")).sendKeys("Andreea");
@@ -28,9 +30,9 @@ driver.findElement(By.id("email_address")).sendKeys("andreea1988iusti2015@gmail.
 driver.findElement(By.id("password")).sendKeys("123456");
 driver.findElement(By.id("confirmation")).sendKeys("123456");
 driver.findElement(By.id("is_subscribed")).click();
-driver.findElement(By.cssSelector("#form-validate > div.buttons-set > button")).click();
-    WebElement registerText = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col1-layout > div > div > div.account-create > ul > li > ul > li > span"));
-    Assert.assertEquals("There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account.", registerText.getText());
+driver.findElement(By.cssSelector("button.button")).click();
+WebElement registerText = driver.findElement(By.cssSelector(".welcome-msg"));
+Assert.assertEquals("WELCOME", registerText.getText());
     }
 
     @After
