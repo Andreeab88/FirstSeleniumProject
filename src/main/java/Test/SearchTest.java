@@ -17,4 +17,25 @@ public void searchForItemSearch(){
         Assert.assertTrue("Product not found!",searchResultsPage.isProductInList("SILVER DESERT NECKLACE"));
 }
 
+@Test
+        public void searchForItem2Search(){
+
+                homePage.setSearchField("women dress");
+                homePage.clickSearchButton();
+                Assert.assertTrue("Product not found!",searchResultsPage.isProductInList("Lafayette Convertible Dress"));
+        }
+
+@Test
+        public void searchForItem3Search(){
+
+                homePage.setSearchField("necklace");
+                homePage.clickSearchButton();
+                searchResultsPage.clickSortButtonField();
+
+        }
+
+
+
 }
+
+

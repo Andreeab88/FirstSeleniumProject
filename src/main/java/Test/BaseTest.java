@@ -1,9 +1,6 @@
 package Test;
 
-import Page.AccountPage;
-import Page.HomePage;
-import Page.LoginPage;
-import Page.SearchResultsPage;
+import Page.*;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +12,9 @@ public class BaseTest {
     public LoginPage loginPage;
     public AccountPage accountPage;
     public SearchResultsPage searchResultsPage;
+    public ProductPage productPage;
+    public CartPage cartPage;
+    public CheckoutPage checkoutPage;
 
     @Before
     public void initDriver() {
@@ -26,6 +26,9 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         accountPage = new AccountPage(driver);
         searchResultsPage = new SearchResultsPage(driver);
+        productPage = new ProductPage(driver);
+        cartPage = new CartPage(driver);
+        checkoutPage = new CheckoutPage(driver);
 
         driver.get("http://testfasttrackit.info/selenium-test/");
     }

@@ -33,6 +33,9 @@ public class HomePage {
     @FindBy(id = "select-language")
     private WebElement selectLanguageField;
 
+    @FindBy(css  = "[title='Register']")
+    private WebElement registerField;
+
 
 
 public void clickAccountLink(){
@@ -57,5 +60,8 @@ public void setLanguageField(String value){
     //selectLanguageField.sendKeys(value);
 }
 
+public void clickregisteField(){
+    registerField.click();
+}
 
 }

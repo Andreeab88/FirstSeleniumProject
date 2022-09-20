@@ -9,35 +9,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class RegisterTest {
-    private WebDriver driver;
+public class RegisterTest extends BaseTest{
 
-    @Before
-    public void initDriver(){
-        System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
-     driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("http://testfasttrackit.info/selenium-test/");
-    }
 @Test
-    public void validRegisterTest(){
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("[title='Register']")).click();
-driver.findElement(By.id("firstname")).sendKeys("Boboc");
-driver.findElement(By.id("middlename")).sendKeys("");
-driver.findElement(By.id("lastname")).sendKeys("Andreea");
-driver.findElement(By.id("email_address")).sendKeys("andreea1988iusti2015@gmail.com");
-driver.findElement(By.id("password")).sendKeys("123456");
-driver.findElement(By.id("confirmation")).sendKeys("123456");
-driver.findElement(By.id("is_subscribed")).click();
-driver.findElement(By.cssSelector("button.button")).click();
-WebElement registerText = driver.findElement(By.cssSelector(".welcome-msg"));
-Assert.assertEquals("WELCOME", registerText.getText());
-    }
+    public void validRegisterTest() {
 
-    @After
+    homePage.clickAccountLink();
+    homePage.clickregisteField();
+    accountPage.setFirstnameField("Boboc");
+    accountPage.setMiddlenameField("");
+    accountPage.setLastnameField("Andreea");
+    accountPage.setEmailField("andreea1988iusti2015@gmail.com");
+    accountPage.setPassField("123456");
+    accountPage.setConfirmField("123456");
+    accountPage.clickSubcribedField();
+    accountPage.clickSubmitField();
+    Assert.assertEquals("WELCOME", accountPage.getWelcomeMessage());
 
-    public void closeDriver(){
-        driver.quit();
-    }
+
+}
 }

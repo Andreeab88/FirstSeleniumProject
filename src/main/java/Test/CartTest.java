@@ -1,38 +1,35 @@
 package Test;
 
 import Page.AccountPage;
+import Page.CartPage;
 import Page.HomePage;
 import Page.LoginPage;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CartTest {
-    private WebDriver driver;
-    private HomePage homePage;
-    private LoginPage loginPage;
-    private AccountPage accountPage;
+public class CartTest extends BaseTest{
 
-    @Before
-    public void initDriver(){
+    @Test
 
-        System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+    public void deleteProductButtonFromCart() {
+       homePage.setSearchField("A TALE OF TWO CITIES");
+       homePage.clickSearchButton();
+searchResultsPage.isProductInList("A Tale of Two Cities");
+searchResultsPage.clickProductFromList("A Tale of Two Cities");
+productPage.clickCheckboxField();
+productPage.clickForToAddToCartField();
+cartPage.clickToRemoveProductFromCart();
+cartPage.getAssertText1();
+Assert.assertEquals("You have no items in your shopping cart.",cartPage.getAssertText1());
 
-        homePage = new HomePage(driver);
-        loginPage = new LoginPage(driver);
-        accountPage = new AccountPage(driver);
 
-        driver.get("http://testfasttrackit.info/selenium-test/");
-    }
 
-   public void addProductInCartTest(){
-       homePage.clickAccountLink();
-       homePage.clickLoginLink();
-       loginPage.setEmailField("andreea1988iusti2015@gmail.com");
-       loginPage.setPasswordField("123456");
-       loginPage.clickSubmitButton();
-   }
+        }
 
 }

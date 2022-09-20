@@ -22,6 +22,11 @@ public class SearchResultsPage {
    @FindBy(css = ".products-grid .product-name a ")
     private List<WebElement>listOfProducts;
 
+   @FindBy(css = "select")
+   private WebElement sortButtonField;
+
+
+
    public boolean isProductInList(String productName){
        for(WebElement element: listOfProducts){
            if(element.getText().equalsIgnoreCase(productName)){
@@ -30,5 +35,19 @@ public class SearchResultsPage {
        }
        return false;
    }
+    public boolean clickProductFromList(String productName){
+        for(WebElement element: listOfProducts){
+            if(element.getText().equalsIgnoreCase(productName)){
+                element.click();
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public void clickSortButtonField(){
+       sortButtonField.click();
+    }
 
 }

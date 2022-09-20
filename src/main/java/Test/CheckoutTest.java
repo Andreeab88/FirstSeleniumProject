@@ -4,30 +4,23 @@ import Page.AccountPage;
 import Page.HomePage;
 import Page.LoginPage;
 import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CheckoutTest {
-    private WebDriver driver;
-    private HomePage homePage;
-    private LoginPage loginPage;
-    private AccountPage accountPage;
+public class CheckoutTest extends BaseTest{
 
-    @Before
-    public void initDriver(){
 
-        System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-
-        homePage = new HomePage(driver);
-        loginPage = new LoginPage(driver);
-        accountPage = new AccountPage(driver);
-
-        driver.get("http://testfasttrackit.info/selenium-test/");
-    }
-
+    @Test
     public void addProductInCartTest(){
+
+        homePage.setSearchField("A TALE OF TWO CITIES");
+        homePage.clickSearchButton();
+        searchResultsPage.isProductInList("A Tale of Two Cities");
+        searchResultsPage.clickProductFromList("A Tale of Two Cities");
+        productPage.clickCheckboxField();
+        productPage.clickForToAddToCartField();
+        checkoutPage.clickCheckoutField();
         homePage.clickAccountLink();
         homePage.clickLoginLink();
         loginPage.setEmailField("andreea1988iusti2015@gmail.com");
